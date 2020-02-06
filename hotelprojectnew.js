@@ -55,6 +55,11 @@ function checkIn(){
     else{
       document.getElementById('fullroom').innerHTML = "room is full!!";
     }
+    
+    li.onclick = function(){
+      this.parentNode.removeChild(this);
+      i -= 1;
+    }
 }
 
 
@@ -71,6 +76,7 @@ function checkOut(){
   document.getElementById('checkout').value = "";
   document.getElementById('fullroom').innerHTML = " ";
 }
+
 function clearAll(){
   var room = document.getElementById('room1');
   var x = room.getElementsByTagName('ol');
@@ -402,4 +408,3 @@ window.onkeypress = function(event) {
 }
  
 
-document.getElementById("checkout").addEventListener("onclick", checkOut);
