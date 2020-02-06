@@ -10,21 +10,15 @@ var d = new Date();
 var date = d.getDate();
 
 //create global variables for each room tha keeps track of how many people are in the room
-var i = 0;
-var s = 0;
-var v = 0;
-var t = 0;
-var a = 0;
-var m = 0;
+var i = 0;  //room 1
+var s = 0;  //room 2
+var v = 0;  //room 3
+var t = 0;  //room 4
+var a = 0;  //room 5
+var m = 0;  //room 6
+
 
 //ROOM 1
-
-var roomOne = document.getElementById('checkin');
-roomOne.addEventListener("keypress", function(event) {
-  if(event.keyCode === 13) {
-    checkIn();
-  }
-});
 
 function checkIn(){
   //create your list
@@ -49,7 +43,7 @@ function checkIn(){
     if(i < 4){
       //make sure user has a input when checking in
       if(guest.length < 1){
-        window.alert("please input guest name");
+        console.log("please input guest name");
       }
       else{
         i++;
@@ -62,6 +56,8 @@ function checkIn(){
       document.getElementById('fullroom').innerHTML = "room is full!!";
     }
 }
+
+
 function checkOut(){
   //do i-- to make sure you subtract one from global varible that is counting how many guests are in your room whenever one checks out
   i--;
@@ -112,7 +108,7 @@ function checkIn2(){
   document.getElementById('checkin2').value = " ";
     if(s < 4){
       if(guest.length < 1){
-        window.alert("please input guest name");
+        console.log("please input guest name");
       }
       else{
         s++;
@@ -170,7 +166,7 @@ function checkIn3(){
   document.getElementById('checkin3').value = " ";
     if(v < 4){
       if(guest.length < 1){
-        window.alert("please input guest name");
+        console.log("please input guest name");
       }
       else{
         v++;
@@ -228,7 +224,7 @@ function checkIn4(){
   document.getElementById('checkin4').value = " ";
     if(t < 4){
       if(guest.length < 1){
-        window.alert("please input guest name");
+        console.log("please input guest name");
       }
       else{
         t++;
@@ -286,7 +282,7 @@ function checkIn5(){
   document.getElementById('checkin5').value = " ";
     if(a < 4){
       if(guest.length < 1){
-        window.alert("please input guest name");
+        console.log("please input guest name");
       }
       else{
         a++;
@@ -344,7 +340,7 @@ function checkIn6(){
   document.getElementById('checkin6').value = " ";
     if(m < 4){
       if(guest.length < 1){
-        window.alert("please input guest name");
+        console.log("please input guest name");
       }
       else{
         m++;
@@ -386,4 +382,24 @@ function lockRoom6(){
     isVisible = true;
   }
 }
+
+
+window.onkeypress = function(event) {
+  if (event.keyCode == 13) {
+    checkIn();
+    document.getElementById("checkin").value = null;
+    checkIn2();
+    document.getElementById("checkin2").value = null;
+    checkIn3();
+    document.getElementById("checkin3").value = null;
+    checkIn4();
+    document.getElementById("checkin4").value = null;
+    checkIn5();
+    document.getElementById("checkin5").value = null;
+    checkIn6();
+    document.getElementById("checkin6").value = null;
+  }
+}
  
+
+document.getElementById("checkout").addEventListener("onclick", checkOut);
